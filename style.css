@@ -1,0 +1,594 @@
+*, *::before, *::after{
+    padding:0;
+    margin:0;
+}
+body{
+    font:15px/1.5 tahoma;
+    color:#222;
+}
+a{
+    color:rgb(20, 73, 73);
+    text-decoration:none;
+}
+.top-header{
+    background:rgb(95, 197, 197);
+    padding:2px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.top-header .social_media{
+    margin-left:30px;
+    color:#fff;
+}
+.top-header .social_media a{
+    font-size:1.3rem;
+}
+.top-header .hotline{
+    color:rgb(20, 73, 73);
+    margin-right:30px;
+}
+.top-header .hotline i{
+    font-size:1.3rem;
+}
+header{
+    position:sticky;
+    top:0;
+    left:0;
+    display:flex;
+    justify-content: space-around!important;
+    align-items: center;
+    background: rgb(18, 109, 109);
+    box-shadow:2px 2px 2px #fff;
+    z-index:1;
+}
+header h1{
+    margin-left:20px;
+    
+    font-size:3rem;
+    
+}
+header h1 a{
+    color:#fff;
+    width:100%;
+    
+    display:flex;
+    align-items:Center;
+}
+header h1 a img{
+    width:80px;
+    height:80px;
+}
+.all_title{
+    width:100%;
+}
+h1 .title{
+    margin:0;
+    padding:0;
+    font-size:2.6rem;
+    letter-spacing: 5px;
+}
+h1 .sub{
+    font-size:.6rem;
+    display:block;
+    letter-spacing:6px;
+    width:100%!important;
+}
+header h2{
+    margin-right:20px;
+    color:#fff;
+}
+.login_form, .user{
+    margin-right:20px;
+}
+.login_form input{
+    padding:5px;
+}
+.get_in{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:10px;
+}
+.get_in a{
+    font-size:1.1rem;
+    color:red;
+
+}
+
+.user{
+    background:rgba(255, 255, 255, .5);
+    padding:5px;
+    border-radius: 50%;
+    cursor:pointer;
+    position:relative;
+    transition:.3s all;
+}
+.user i{
+    color:#fff;
+    font-size:2.2rem;
+}
+.user img{
+    border-radius:50%;
+    width:50px;
+    height:50px;
+}
+.user .logout{
+    display:none;
+    position:absolute;
+    margin-right:1vw;
+    background:#fff;
+    
+}
+.user .logout a{
+    padding:10px;
+    font-size:1.3rem;
+}
+.user:hover .logout{
+    display:block;
+}
+main{
+    width:100%;
+    min-height:90vh;
+}
+.contents{
+    position:relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.bg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+#bga{
+    min-height:1000px;
+}
+.bg img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+.bg::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background-color:rgba(0, 0, 0, .4);
+}
+.acpn{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    opacity:0;
+    transform:scale(0);
+    animation:.5s showAcpn 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+@keyframes showAcpn{
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+.pcn{
+    height:70%;
+    width:60%;
+    margin:50px auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    text-align:center;
+}
+.acpn h1{
+    text-align:center;
+    color:#fff;
+    margin-top:20px;
+}
+.acpn img{
+    width:20%;
+    display:block;
+    margin:auto;
+    
+}
+.acpn h3{
+    color:#fff;
+}
+.acpn .select_portal{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.acpn .select_portal a{
+    padding:10px;
+    background:rgb(20, 73, 73);
+    color:#fff;
+    margin:20px;
+    box-shadow:2px 2px 2px #c4c4c4;
+}
+.acpn .select_portal #jobPortal{
+    background:rgb(95, 197, 197);
+}
+.reg_form{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    margin-top:40px;
+}
+.main_form{
+    width:60%;
+    margin:0 auto;
+    background:rgba(252, 246, 246, .7);
+    padding:10px;
+    box-shadow:2px 2px 5px 2px rgb(20, 73, 73);
+    border:1px solid rgb(18, 109, 109);
+    border-radius:5px;
+    animation: .5s zoomin 1;
+    animation-fill-mode: forwards;
+}
+@keyframes zoomin{
+    0%{
+        opacity:0;
+        transform:scale(0);
+    }
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+.reg_form p{
+    text-align:center;
+    margin-bottom:5px;
+    font-size:1.3rem;
+    font-family:'monotype corsiva';
+}
+.reg_form hr{
+    width:40px;
+    height:3px;
+    background: rgb(18, 109, 109);
+    margin: 10px auto;
+}
+.reg_form form{
+    width:100%;
+    margin: 0 auto;
+    
+}
+
+.reg_form button{
+    padding:10px;
+    background:rgb(18, 109, 109);
+    color:#fff;
+    width:30%;
+    display:block;
+    margin:0 auto;
+    cursor: pointer;
+    
+}
+.footer{
+    background-color:rgb(0, 0, 0, .9);
+    color:#fff;
+    text-align:center;
+    padding:5px;
+}
+.footer p{
+    text-align:center;
+}
+.admin_dashboard{
+    display:flex;
+    position:relative;
+}
+aside{
+    position:fixed;
+    width:15vw;
+    padding:10px;
+    background:rgb(95, 197, 197);
+    color:#fff;
+    height:100vh;
+}
+aside h3{
+    text-transform: uppercase;
+    text-align:center;
+}
+aside button{
+    display:block;
+    margin:10px 0;
+    padding:5px;
+    cursor:pointer;
+    width:100%;
+}
+.dash_board{
+    margin-left:50px;
+    width:80vw;
+}
+.dash_board .summary{
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top:40px;
+}
+/* .status p{
+    font-size:1.2rem;
+    color:red;
+    text-decoration: underline;
+} */
+/* .success{
+    padding:5px;
+    background:rgb(18, 109, 109);
+}
+.success p{
+    color:#fff;
+} */
+.sum{
+    padding:10px;
+    border-radius:10px;
+    height:120px;
+    width:200px;
+    margin:10px;
+    cursor:pointer;
+}
+.sum .description{
+    text-align:center;
+    font-size:1.2rem;
+    color:rgb(20, 73, 73);
+}
+.figures{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    margin-top:20px;
+    color:#fff;
+    font-size:2rem;
+}
+#newReg{
+    background-color:rgb(75, 174, 212);
+}
+#approved{
+    background-color:rgb(0, 255, 85);
+}
+/* #declined{
+    background-color:red;
+} */
+.details{
+    display:none;
+    width:95%;
+    margin:40px auto 0 auto;
+    
+}
+.details h2{
+    color:rgb(58, 57, 57);
+    text-align:center;
+}
+.details hr{
+    width:50px;
+    height:5px;
+    background-color:rgb(75, 174, 212);
+    margin:10px auto;
+}
+.details table{
+    width:100%;
+    margin: 0 auto;
+    border:1px solid rgba(95, 197, 197, .4);
+    overflow:scroll;
+}
+.details tr, .details th, .details td{
+    height:50px;
+    border:1px solid rgba(95, 197, 197, .4);
+    padding:5px 3px;
+    text-align:left;
+    font-size:.9rem;
+    color:rgb(70, 68, 68);
+}
+.details td{
+    text-transform: capitalize;
+}
+.details tr:nth-child(even){
+    background:rgba(235, 231, 231, .5);
+}
+.details th{
+    text-transform: uppercase;
+    background:rgb(75, 174, 212);
+    color:#fff;
+    padding-left:2px;
+}
+.details table tr button:nth-child(1), .details table tr button:nth-child(2){
+    display:inline;
+    margin:2px 3px;
+    padding:2px;
+    cursor:pointer;
+}
+.details table tr button:nth-child(1) a, .details table tr button:nth-child(2) a{
+    color:#fff;
+}
+.details table tr button:nth-child(1){
+    background:green;
+}
+.details table tr button:nth-child(2){
+    background:red;
+}
+#membersProfiles td img{
+    width:100px;
+    height:100px;
+}
+/* .memberReceipt{
+    width:80%;
+    margin:0 auto;
+}
+.mainReceipt{
+    padding:10px;
+    border:5px solid rgb(20, 73, 73);
+    width:100%;
+}
+.receipt_header{
+    display:flex;
+    align-items:center;
+    margin:10px 0 20px 0;
+}
+.acpn_logo{
+    width:20%;
+    margin-right:50px;
+}
+.acpn_logo img{
+    width:100%;
+}
+.association h2{
+    text-align:center;
+    font-family: 'algerian';
+    text-transform: uppercase;
+    color:rgb(18, 109, 109);
+}
+.receipt_title{
+    margin:0 0 10px 0;
+}
+.receipt_title h3{
+    text-align:center;
+    text-transform: uppercase;
+}
+.user_image{
+    width:50%;
+    margin:10px auto;
+    height:300px
+}
+.user_image img{   
+    width:100%;
+    height:100%;
+    border-radius:10px;
+    border:1px solid rgb(18, 109, 109);
+}
+.receipt_content{
+    padding:5px;
+    width:90%;
+    margin:0 auto;
+}
+.rows{
+    display:flex;
+    justify-content:space-between;
+}
+.rows span{
+    text-decoration:underline;
+    font-size:1.2rem;
+    font-weight:bold;
+}
+.chairman_sign{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.sign.p{
+    font-weight: bolder;
+}
+.receipt_content button{
+    padding:5px;
+    color:#fff;
+    background:rgb(20, 73, 73);
+}
+ */
+
+ .search{
+     padding:5px;
+     
+ }
+ .new_password label{
+     color:rgb(20, 73, 73);
+     text-transform: capitalize;
+ }
+ .select_date form select{
+     padding:5px;
+     
+ }
+ .select_date form button{
+     padding:5px;
+     background:rgb(95, 197, 197);
+     color:#fff;
+ }
+ #previous_form{
+     background:#fff;
+     box-shadow: 2px 2px 2px 2px #999898;
+     margin:10px auto;
+     width:50%;
+     border-radius:10px;
+     padding:20px;
+ }
+ #previous_form .data_input{
+     display:flex;
+     width:100%;
+     gap:1rem;
+     margin:10px 0;
+ }
+ #previous_form h3{
+     text-align: center;
+     color:rgb(18, 109, 109);
+ }
+ #previous_form .datas{
+    display:block;
+    width:48%;
+
+ }
+ #previous_form .datas input{
+     padding:10px;
+ }
+ #previous_form button{
+     background:rgb(20, 73, 73);
+     color:#fff;
+     padding:10px;
+     width:auto;
+     display:block;
+     margin:10px auto;
+ }
+ #change_passport form{
+     background:#fff;
+     box-shadow:3px 3px 3px rgb(18, 109, 109);
+     padding:10px;
+     width:50%;
+     margin:10px auto;
+     border-radius: 10px;
+ }
+ #change_passport form figure{
+     display:flex;
+     align-items: flex-end;
+    justify-content: space-between;
+    /* flex-direction: row-reverse; */
+ }
+ #change_passport form figure img{
+     width:200px;
+     height:200px;
+     border-radius:10px;
+ }
+ #change_passport form figure figcaption{
+     display:block;
+     width:50%;
+ }
+ #change_passport button{
+     margin:20px 0;
+     background:rgb(20, 73, 73);
+     color:#fff;
+     padding:15px;
+ }
+ @media screen and (max-width: 800px){
+    .pcn{
+        height:60%;
+        width:90%;
+        margin:50px auto;
+    }
+    .pcn h1{
+        font-size:1.2rem;
+    }
+    .pcn img{
+        width:40%;
+    }
+    header{
+        justify-content: center!important;
+    }
+ }
