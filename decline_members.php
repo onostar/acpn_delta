@@ -10,14 +10,11 @@
         echo "not connected";
     }
      */
-    use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
-$mail = new PHPMailer();
+    require "PHPMailer/PHPMailerAutoload.php";
+    require "PHPMailer/class.phpmailer.php";
+    require "PHPMailer/class.smtp.php";
     $_SESSION['error'] = "";
-    $new_number = rand(1, 1000);
+    // $new_number = rand(1, 1000);
     /* if(isset($_SESSION['tdate'])){
         $transdate = $_SESSION['tdate'];
     } */
@@ -46,33 +43,47 @@ $mail = new PHPMailer();
         // echo $recipient;
         
         
-        
-        $message = "Hello, Your payment has been declined! \n Kindly login and Re-upload your correct payment slip. \n For more information, you can call \n +2348033588514 or +2347032664418 \n https://acpnedo.com/members.php";
-        $sname = $pharmacist;
-        $mail->isSMTP();                      // Set mailer to use SMTP 
-        $mail->Host = 'acpndelta.com';       // Specify main and backup SMTP servers 
-        $mail->SMTPAuth = true;               // Enable SMTP authentication 
-        $mail->Username = 'admin@acpndelta.com';   // SMTP username 
-        $mail->Password = 'Applied2020.';   // SMTP password 
-        $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted 
-        $mail->Port = 587;                    // TCP port to connect to 
-        $mail->isHTML(true);
-        $mail->SetFrom('admin@acpndelta.com', 'ACPN Delta'); //Name is optional
-        $mail->Subject   = 'ACPN DELTA -  PAYMENT DECLINED';
-        $mail->Body      = "<p style='font-weight:bold'>Dear {$sname}</p>{$message}<br/><pstyle='font-weight:bold'> Thank You</p><br/>";
-        $mail->AddAddress( "{$recipient}" );
-        return $mail->Send();
-        
-        $_SESSION['error'] = "Member declined!";
-        header("Location: admin.php#approvedMembers");
-        /* $_SESSION['msg'] = " Member Approved!";
-        header("Location: admin.php#approvedMembers"); */
-        /* $_SESSION['changed_status'] = "";
-        $run_update = mysqli_query($connectdb, $select_statement);
-        if($run_update){
-            $_SESSION['msg'] = "Member Approved!";
-            header("Location: admin.php#approvedMembers");
-        }else{
-            echo "unsuccessful";
-        } */
+            function smtpmailer($to, $from, $from_name, $subject, $body)
+            {
+                $mail = new PHPMailer();
+                $mail->IsSMTP();
+                $mail->SMTPAuth = true; 
+         
+                $mail->SMTPSecure = 'ssl'; 
+                $mail->Host = 'www.acpndelta.com';
+                $mail->Port = 465; 
+                $mail->Username = 'admin@acpndelta.com';
+                $mail->Password = 'admin@acpndelta';   
+           
+           //   $path = 'reseller.pdf';
+           //   $mail->AddAttachment($path);
+           
+                $mail->IsHTML(true);
+                $mail->From="admin@acpndelta.com";
+                $mail->FromName=$from_name;
+                $mail->Sender=$from;
+                $mail->AddReplyTo($from, $from_name);
+                $mail->Subject = $subject;
+                $mail->Body = $body;
+                $mail->AddAddress($to);
+                if(!$mail->Send())
+                {
+                    $error ="Please try Later, Error Occured while Processing...";
+                    return $error; 
+                }
+                else 
+                {
+                    
+                    $error = header("Location: admin.php#approvedMembers");
+                    return $error;
+                }
+            }
+            
+            $to   = $recipient;
+            $from = 'admin@acpndelta.com';
+            $name = 'ACPN Delta';
+            $subj = 'ACPN Delta Payment Declined';
+            $msg = "Hello, Your payment has been declined! \n Kindly login and Re-upload your correct payment slip. \n For more information, you can call \n +2348074014660 or +2348169139603 \n https://acpndelta.com/members.php";
+            
+            $error=smtpmailer($to, $from, $name ,$subj, $msg);
     }

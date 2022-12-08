@@ -3,7 +3,7 @@
     session_start();
 
     include "server.php";
-    ini_set('smtp_port', 587);
+    // ini_set('smtp_port', 587);
     /* if($connectdb){
         echo "db connected";
     }
@@ -107,7 +107,7 @@ $mail = new PHPMailer();  */
                         $mail->Host = 'www.acpndelta.com';
                         $mail->Port = 465; 
                         $mail->Username = 'admin@acpndelta.com';
-                        $mail->Password = 'Applied1010.';   
+                        $mail->Password = 'admin@acpndelta';   
                 
                 //   $path = 'reseller.pdf';
                 //   $mail->AddAttachment($path);

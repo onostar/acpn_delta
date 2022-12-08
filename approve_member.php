@@ -83,7 +83,7 @@ $mail = new PHPMailer(); */
             $mail->Host = 'www.acpndelta.com';
             $mail->Port = 465; 
             $mail->Username = 'admin@acpndelta.com';
-            $mail->Password = 'Applied1010.';   
+            $mail->Password = 'admin@acpndelta';   
        
        //   $path = 'reseller.pdf';
        //   $mail->AddAttachment($path);

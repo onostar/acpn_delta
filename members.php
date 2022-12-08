@@ -1030,7 +1030,7 @@
                                     <div class="association">
                                         <h2>Association of Community Phamacists of Nigeria<br>Delta State Chapter</h2>
                                         <p>146 New Lagos road, Benin city.
-                                        <h3 class="receipt_title">Membership Clearance form for "<?php echo date("Y")?>"</h3>
+                                        <h3 class="receipt_title">Membership Clearance form for "<?php echo date("Y", strtotime($rows->tdate))?>"</h3>
                                     </div>
                                 </div>
                                 
@@ -1049,8 +1049,8 @@
                                             <td>TWENTY THOUSAND NAIRA ONLY (N20,000)</td>
                                         </tr> -->
                                     </table>
-                                    <p>Has fulfilled ACPN registration requirement for the year <?php echo date("Y");?>. </p>
-                                    <p>He is therefore a bonafied member of ACPN Delta State for the year <?php echo date("Y");?>.</p>
+                                    <p>Has fulfilled ACPN registration requirement for the year <?php echo date("Y", strtotime($rows->tdate));?>. </p>
+                                    <p>He is therefore a bonafied member of ACPN Delta State for the year <?php echo date("Y", strtotime($rows->tdate));?>.</p>
                                     <div class="chairman_sign">
                                     <div class="sign">
                                         <img src="signature.jpeg" alt="chairman signature">

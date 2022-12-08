@@ -171,12 +171,25 @@
                                         echo $_SESSION['change'];
                                         unset($_SESSION['change']);
                                     }
+                                    
 
                                     
                                 ?>
                             </p>
                         </div>
                         <form class="login_form" action="login.php" method="POST">
+                            <p style="font-weight:bold; font-size:1.1rem; color:green;">
+                                <?php
+                                    if(isset($_SESSION['success'])){
+                                        echo $_SESSION['success'];
+                                        unset($_SESSION['success']);
+                                    }
+                                    if(isset($_SESSION['error'])){
+                                        echo $_SESSION['error'];
+                                        unset($_SESSION['error']);
+                                    }
+                                ?>
+                            </p>
                             <input type="text" name="username" placeholder="username" required><br><br>
                             <input type="password" name="user_password" placeholder="password"><br><br>
                             <div class="get_in">
