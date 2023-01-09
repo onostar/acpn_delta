@@ -177,7 +177,7 @@
             text-align:center;
             text-transform:uppercase;
             margin-bottom:10px;
-            font-ize:1.1rem;
+            font-size:1.1rem;
         }
         .receipt_title{
             margin:0 0 10px 0;
