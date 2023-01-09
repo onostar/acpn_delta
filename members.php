@@ -37,7 +37,6 @@
             bottom:0;
             left:0vw;
             width:100%;
-            width
             background:rgb(95, 197, 197);
             padding:2px;
             display:flex;
@@ -242,8 +241,6 @@
         }
         .mobile-menu{
             display:none;
-            position:absolute;
-            right:25vw;
         }
         .mobile-menu i{
             color:#fff;
@@ -346,7 +343,7 @@
             }
             .mobile-menu{
                 
-                display:block;
+                display:block!important;
             }
             .top-header .social_media{
                 margin-left:0;
@@ -535,6 +532,10 @@
 <body> 
     
     <header>
+        <div class="mobile-menu">
+            <a id="menu" href="javascript:void(0)">
+            <i class="fas fa-bars"></i></a>
+        </div>
         <h1>
             <a href="members.php">
                 <img src="acpn_logo.png" alt="acpn">
@@ -546,10 +547,7 @@
             </a>
         </h1>
         <h2>ASSOCIATION OF COMMUNITY PHARMACISTS OF NIGERIA, DELTA CHAPTER</h2>
-        <div class="mobile-menu">
-            <a id="menu" href="javascript:void(0)">
-            <i class="fas fa-bars"></i></a>
-        </div>
+        
         <div class="user">
             <a href="#" title="<?php echo $row->pharmacist;?>">
                 <!-- <i class="fas fa-user"></i> -->

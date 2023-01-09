@@ -24,7 +24,6 @@ include "server.php";
             bottom:0;
             left:0vw;
             width:100%;
-            width
             background:rgb(95, 197, 197);
             padding:2px;
             display:flex;
@@ -55,8 +54,6 @@ include "server.php";
             left:15vw;
         }
         .mobile-menu{
-            position:absolute;
-            right:15vw;
             display:none;
         }
         .mobile-menu i{
@@ -432,6 +429,10 @@ include "server.php";
         </div>
     </section>
     <header>
+        <div class="mobile-menu">
+            <a id="menu" href="javascript:void(0)">
+            <i class="fas fa-bars"></i></a>
+        </div>
         <h1>
             <a href="admin.php">
                 <img src="acpn_logo.png" alt="acpn">
@@ -443,10 +444,7 @@ include "server.php";
             </a>
         </h1>
         <h2>ASSOCIATION OF COMMUNITY PHARMACISTS OF NIGERIA, DELTA CHAPTER</h2>
-        <div class="mobile-menu">
-            <a id="menu" href="javascript:void(0)">
-            <i class="fas fa-bars"></i></a>
-        </div>
+        
         <div class="user">
             <a href="#" title="Admin">
                 <i class="fas fa-user"></i>
