@@ -29,7 +29,7 @@ $mail = new PHPMailer(); */
         $id = $_GET['approve'];
         $transdate = date("Y/m/d")."/00/".$id;
 
-        $select_statement = $connectdb->prepare("UPDATE payments SET payment_status=1, receipt_number='ACPN/EDO/$transdate/$new_number' WHERE id = :id");
+        $select_statement = $connectdb->prepare("UPDATE payments SET payment_status=1, receipt_number='ACPN/DELTA/$transdate/$new_number' WHERE id = :id");
         $select_statement->bindvalue('id', $id);
         $select_statement->execute();
 

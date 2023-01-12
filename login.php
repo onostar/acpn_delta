@@ -45,7 +45,7 @@ function validate($field){
     }
 }
 if(isset($_POST["login"])){
-    $username = validate("username");
+    $username = strtolower(validate("username"));
     $user_password = validate("user_password");
 
     /* check user validity */

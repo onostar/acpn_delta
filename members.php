@@ -1027,7 +1027,7 @@
                                     </div>
                                     <div class="association">
                                         <h2>Association of Community Phamacists of Nigeria<br>Delta State Chapter</h2>
-                                        <p>146 New Lagos road, Benin city.
+                                        <p>2 Ozoro/Ughelli Road, Ozoro, Delta state.
                                         <h3 class="receipt_title">Membership Clearance form for "<?php echo date("Y", strtotime($rows->tdate))?>"</h3>
                                     </div>
                                 </div>
@@ -1051,7 +1051,7 @@
                                     <p>He is therefore a bonafied member of ACPN Delta State for the year <?php echo date("Y", strtotime($rows->tdate));?>.</p>
                                     <div class="chairman_sign">
                                     <div class="sign">
-                                        <img src="signature.jpeg" alt="chairman signature">
+                                        <img src="signature.jpg" alt="chairman signature">
                                         <p><strong>Chairman ACPN</strong></p>
                                     </div>
                                     <div class="sign">
@@ -1088,7 +1088,7 @@
                 <p style="font-weight:bold;">&copy;ACPN <?php echo date("Y")?>. Powered by <a href="https://appliedmacros.com">Applied macrosystems</a></p>
                 </div>
                 <div class="hotline">
-                    <p><i class="fas fa-phone-alt"></i> +2348033588514, +2347032664418</p>
+                    <p><i class="fas fa-phone-alt"></i> +2348169139603</p>
                 </div>
             </section>
         </section>
