@@ -44,7 +44,7 @@
                     <td><?php echo $row->pharmacy_name;?></td>
                     <td><?php echo $row->supretendent_pharmacist;?></td>
                     <td><?php echo date("jS M, Y", strtotime($row->tdate));?></td>                     
-                    <td><a href="<?php echo 'users/'.$row->pharmacist_passport?>" target="_blank"><img src="<?php echo 'users/'.$row->pharmacist_passport;?>"></a></td>                    
+                    <td><a href="<?php echo 'users/'.$row->pharmacist_passport?>" target="_blank"><img src="<?php echo 'users/'.$row->pharmacist_passport;?>></a></td>                    
                 </tr>  
             </tbody> 
             <?php $sn++; endforeach; }?>  

@@ -202,7 +202,7 @@
         </div>
     </main>
     <footer class="footer">
-        <p>All Rights Reserved &copy; 2020 ACPN, Edo state. Powered by <a href="https://appliedmacros.com">Applied Macrosystems</a></p>
+        <p>All Rights Reserved &copy; <?php echo date("Y")?> ACPN, Delta state. Powered by <a href="https://appliedmacros.com">Applied Macrosystems</a></p>
     </footer>
 </body>
 </html>

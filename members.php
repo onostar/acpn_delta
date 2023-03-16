@@ -568,6 +568,7 @@
                 <button class="btn" id="showReceiptBtn">Print Clearance Slip</button>
                 <button class="btn" id="updateBtn">Update Profile</button>
                 <button class="btn" id="updatePassport">Change Passport</button>
+                <button class="btn" id="changePassword">Change Password</button>
             </aside>
             <section class="dash_board">
                 <?php
@@ -991,6 +992,27 @@
 
                     </form>
                 </div>
+                <!-- change password -->
+                <div class="details" id="change_password">
+                    <h2>Change your password</h2>
+                    <form action="change_old_password.php" method="POST" class="updateForm" style="width:40%;">
+                        <input type="hidden" value="<?php echo $member?>" name="username">
+                        <div class="otherInfo">
+                            <div class="inputs">
+                                <div class="data">
+                                    <label for="prev_password">Enter current password</label>
+                                    <input type="password" name="cur_password" id="cur_password">
+                                </div>
+                                <div class="data">
+                                    <label for="new_password">Enter New password</label>
+                                    <input type="password" name="new_password" id="new_password">
+                                </div>
+                            </div> 
+                            
+                            <button type="submit" name="change_password">Change password <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
                 <!-- clearance slip -->
                 <div class="details" id="receipt">
                     <h2>Membership Annual Receipt</h2>
@@ -1056,7 +1078,7 @@
                                     </div>
                                     <div class="sign">
                                         <p><?php
-                                            $get_date = $connectdb->prepare("SELECT tdate FROM payments WHERE pharmacist_email = :pharmacist_email");
+                                            $get_date = $connectdb->prepare("SELECT tdate FROM payments WHERE pharmacist_email = :pharmacist_email AND YEAR(tdate) = YEAR(CURDATE())AND payment_status = 1");
                                             $get_date->bindvalue("pharmacist_email", $rows->pharmacist_email);
                                             $get_date->execute();
                                             $tdate = $get_date->fetch();

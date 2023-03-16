@@ -576,6 +576,17 @@ aside button{
      color:#fff;
      padding:15px;
  }
+ #change_password .data{
+    width: 100%;
+ }
+ #change_password .data input{
+    width:90%;
+    margin:10px auto;
+    padding:10px;
+ }
+ #change_password .data label{
+    display:block;
+ }
  @media screen and (max-width: 800px){
     .pcn{
         height:60%;

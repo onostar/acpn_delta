@@ -288,6 +288,66 @@ include "server.php";
             text-align:center;
             cursor:pointer;
         }
+        .updateForm{
+            width:90%;
+            margin:20px auto 70px auto;
+            padding:10px;
+            box-shadow:2px 2px 5px 2px rgb(20, 73, 73);
+            border:1px solid rgb(18, 109, 109);
+            border-radius:5px;
+            animation: .5s zoomin 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes zoomin{
+            0%{
+                opacity:0;
+                transform:scale(0);
+            }
+            100%{
+                opacity:1;
+                transform:scale(1);
+            }
+        }
+        .otherInfo{
+            width:90%;
+            margin:10px auto;
+        }
+        .otherInfo .contents{
+            display:flex;
+            align-items:center;
+        }
+        .contents .infos{
+            width:50%;
+            margin:5px 0;
+        }
+        .infos label{
+            text-transform:uppercase;
+            color:rgba(70, 68, 68, .7);
+        }
+        .infos input{
+            padding:10px;
+            width:90%;
+            border-radius:2px;
+            color:rgb(70, 68, 68);
+            border:1px solid rgb(18, 109, 109);
+            box-shadow:2px 2px 2px rgb(18, 109, 109);
+        }
+        .infos select{
+            padding:10px;
+            width:95%;
+            border-radius:2px;
+            color:rgb(70, 68, 68);
+            border:1px solid rgb(18, 109, 109);
+            box-shadow:2px 2px 2px rgb(18, 109, 109);
+        }
+        .updateForm button{
+            padding:10px;
+            background:rgb(18, 109, 109);
+            color:#fff;
+            cursor:pointer;
+            margin:0 auto;
+            display:block;
+        }
         @media screen and (max-width:800px){
             .admin_dashboard{
                 width:100%;
@@ -463,6 +523,8 @@ include "server.php";
                 <button class="btn" id="approveMembers" >Confirm clearance</button>
                 <button class="btn" id="approvedBtn">Approved members</button>
                 <button class="btn" id="declinedBtn">Declined members</button>
+                <button class="btn" id="locationBtn">Members by Location</button>
+                <button class="btn" id="changePassword">Change Password</button>
                 <button class="btn" id="createBtn">Create user</button>
             </aside>
             <section class="dash_board">
@@ -819,14 +881,62 @@ include "server.php";
                                     <td><?php echo $row->pharmacy_name;?></td>
                                     <td><?php echo $row->supretendent_pharmacist;?></td>
                                     <td><?php echo $row->payment_method;?></td>
-                            <td><a href="<?php echo 'payments/'.$row->payment_evidence?>" target="_blank"><img src="<?php echo 'payments/'.$row->payment_evidence;?>"></a></td>
-                            <td><a href="<?php echo 'payments/'.$row->pcn_payment?>" target="_blank"><img src="<?php echo 'payments/'.$row->pcn_payment;?>" alt="Nil"></a></td>
+                            <td><a href="<?php echo 'payments/'.$row->payment_evidence?>" target="_blank"></a></td>
+                            <td><a href="<?php echo 'payments/'.$row->pcn_payment?>" target="_blank"></a></td>
                                     <td><?php echo date("jS M, Y", strtotime($row->tdate));?></td>                     
                                 </tr>  
                             </tbody> 
                             <?php $sn++; endforeach; ?>  
                         </table>
                     </div>
+                </div>
+                <!-- Member by location -->
+                <div class="details" id="membersLocation">
+                    <!-- search approved date -->
+                    <div class="select_date">
+                        <form method="POST">
+                            <h3>Search members by location</h3>
+                            <select name="mem_location" id="mem_location" required>
+                                <option selected>Select Location</option>
+                                <?php
+                                    $select_loc = $connectdb->prepare("SELECT pharmacy_location FROM users GROUP BY pharmacy_location ORDER BY pharmacy_location");
+                                    $select_loc->execute();
+                                    $rows = $select_loc->fetchAll();
+                                    
+                                    foreach($rows as $row):
+                                    
+                                ?>
+                                <option value="<?php echo $row->pharmacy_location?>"><?php echo $row->pharmacy_location?></option>
+                                <?php endforeach;?>
+                                
+                            </select>
+                            <button type="submit" name="search_loc" id="search_loc">Search</button>
+                        </form>
+                    </div>
+                    <div class="the_location">
+                        
+                    </div>
+                </div>
+                <!-- change password -->
+                <div class="details" id="change_password">
+                    <h2>Change your password</h2>
+                    <form action="change_old_password.php" method="POST" class="updateForm" style="width:40%;">
+                        <input type="hidden" value="<?php echo $member?>" name="username">
+                        <div class="otherInfo">
+                            <div class="inputs">
+                                <div class="data">
+                                    <label for="prev_password">Enter current password</label>
+                                    <input type="password" name="cur_password" id="cur_password">
+                                </div>
+                                <div class="data">
+                                    <label for="new_password">Enter New password</label>
+                                    <input type="password" name="new_password" id="new_password">
+                                </div>
+                            </div> 
+                            
+                            <button type="submit" name="change_password">Change password <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
                 </div>
                 <!-- create users -->
                 <div class="details" id="createUsers">
@@ -903,6 +1013,22 @@ $(document).ready(function(){
             data: {payment_year:payment_year},
             success: function(response){
                 $(".the_approved").html(response);
+            }
+        });
+        return false;
+    });
+});
+//search members by location
+$(document).ready(function(){
+    $("#search_loc").click(function(){
+        let mem_location = document.getElementById("mem_location").value;
+        
+        $.ajax({
+            type: "POST",
+            url: "search_location.php",
+            data: {mem_location:mem_location},
+            success: function(response){
+                $(".the_location").html(response);
             }
         });
         return false;

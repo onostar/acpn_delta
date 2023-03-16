@@ -25,6 +25,8 @@ $(document).ready(function(){
         document.getElementById('createUsers').style.display = "none";
         document.querySelector('.summary').style.display = "none";
         $("#declinedMembers").hide();
+        $("#membersLocation").hide();
+        $("#change_password").hide();
         
     });
 });
@@ -39,6 +41,8 @@ $(document).ready(function(){
         document.querySelector('.summary').style.display = "none";
         document.getElementById('member').style.display = "none";
         $("#declinedMembers").hide();
+        $("#membersLocation").hide();
+        $("#change_password").hide();
 
     });
 });
@@ -54,6 +58,8 @@ $(document).ready(function(){
         document.querySelector('.summary').style.display = "none";
         document.getElementById('member').style.display = "none";
         $("#declinedMembers").hide();
+        $("#membersLocation").hide();
+        $("#change_password").hide();
 
     });
 });
@@ -69,6 +75,8 @@ $(document).ready(function(){
         document.getElementById('member').style.display = "none";
         $("#declinedMembers").hide();
         $("#change_passport").hide();
+        $("#membersLocation").hide();
+        $("#change_password").hide();
 
     });
 });
@@ -84,6 +92,24 @@ $(document).ready(function(){
         document.querySelector('.summary').style.display = "none";
         $("#acceptMembers").hide();
         $("#change_passport").hide();
+        $("#membersLocation").hide();
+        $("#change_password").hide();
+
+    });
+});
+/* display members by location*/
+$(document).ready(function(){
+    $("#locationBtn").click(function(){
+        $("#membersLocation").show();
+        $("#declinedMembers").hide();
+         document.getElementById('member').style.display = "none";
+        document.getElementById('approvedMembers').style.display ="none";
+        document.getElementById('paidMembers').style.display ="none";
+        document.getElementById('createUsers').style.display = "none";
+        document.querySelector('.summary').style.display = "none";
+        $("#acceptMembers").hide();
+        $("#change_passport").hide();
+        $("#change_password").hide();
 
     });
 });
@@ -114,6 +140,7 @@ $(document).ready(function(){
         document.querySelector('.summary').style.display = "none";
         document.querySelector('.memberInfo').style.display = "none";
         $("#change_passport").hide();
+        $("#change_password").hide();
         
     });
 });
@@ -127,6 +154,7 @@ $(document).ready(function(){
         document.querySelector('.summary').style.display = "none";
         document.querySelector('.memberInfo').style.display = "none";
         $("#change_passport").hide();
+        $("#change_password").hide();
 
     });
 });
@@ -140,6 +168,8 @@ $(document).ready(function(){
         document.querySelector('.summary').style.display = "none";
         document.querySelector('.memberInfo').style.display = "none";
         $("#change_passport").hide();
+        $("#change_password").hide();
+
     });
 });
 /* display Change passport*/
@@ -151,6 +181,26 @@ $(document).ready(function(){
         document.getElementById('makePayment').style.display = "none";
         document.querySelector('.summary').style.display = "none";
         document.querySelector('.memberInfo').style.display = "none";
+        $("#change_password").hide();
+    });
+});
+/* display Change password*/
+$(document).ready(function(){
+    $("#changePassword").click(function(){
+        $("#change_password").show();
+        $("#change_passport").hide();
+        $("#updateProfile").hide();
+        $("#receipt").hide();
+        $("#makePayment").hide();
+        // document.querySelector('.memberInfo').style.display = "none";
+        $("#approvedMembers").hide();
+            $("#acceptMembers").hide();
+            $("#paidMembers").hide();
+            $(".summary").hide();
+            $(".member_profile").hide();
+            $("#declinedMembers").hide();
+        $("#membersLocation").hide();
+        $("#createUsers").hide();
     });
 });
 
@@ -199,8 +249,18 @@ $('#searchDecline').keyup(function() {
     }).hide();
 });
 /* search approved members */
-let $ron = $('#approvedTable tbody tr');
+let $rons = $('#approvedTable tbody tr');
 $('#searchApprove').keyup(function() {
+    let val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+    $rons.show().filter(function() {
+        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+        return !~text.indexOf(val);
+    }).hide();
+});
+/* search location members */
+let $ron = $('#locationTable tbody tr');
+$('#searchLocation').keyup(function() {
     let val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
 
     $ron.show().filter(function() {
@@ -255,7 +315,8 @@ function displayFromDashboard(){
             $(".summary").hide();
             $(".member_profile").hide();
             $("#declinedMembers").hide();
-
+            $("#change_password").hide();
+        
         })
     })
     $(document).ready(function(){
@@ -266,6 +327,7 @@ function displayFromDashboard(){
             $(".summary").hide();
             $(".member_profile").hide();
             $("#declinedMembers").hide();
+            $("#change_password").hide();
 
         })
     })
@@ -277,6 +339,8 @@ function displayFromDashboard(){
             $(".summary").hide();
             $(".member_profile").hide();
             $("#declinedMembers").hide();
+            $("#change_password").hide();
+
         })
     })
     $(document).ready(function(){
@@ -287,6 +351,8 @@ function displayFromDashboard(){
             $("#acceptMembers").hide();
             $(".summary").hide();
             $(".member_profile").hide();
+            $("#change_password").hide();
+
         })
     })
 }
@@ -312,6 +378,13 @@ $(document).ready(function(){
         });
     })
 })
+/* download members by location */
+function downloadMembers(){
+        $("#locationTable").table2excel({
+            filename: "ACPN_Edo_members_location.xls"
+        });
+    
+}
 
 /* download member profile */
 $(document).ready(function(){
